@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phở Madame — Vietnamese Kitchen, Roseville CA</title>
+<meta name="description" content="Phở Madame — elevated Vietnamese noodle house in Roseville, CA. Simmered broth, fresh herbs, and a short menu done right.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --broth-dark:#241208;
+    --broth:#331c10;
+    --panel:#3d2417;
+    --gold:#d9a441;
+    --gold-soft:#eccd8f;
+    --jade:#5c7c62;
+    --jade-soft:#8fab8f;
+    --chili:#c1502e;
+    --cream:#f6efe2;
+    --paper:#faf6ee;
+    --ink:#241208;
+    --muted:#8d7a68;
+    --line: rgba(246,239,226,0.14);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--gold);
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  section{position:relative;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 28px;
+    background:linear-gradient(to bottom, rgba(36,18,8,0.92), rgba(36,18,8,0));
+    transition:background .3s ease, box-shadow .3s ease, padding .3s ease;
+  }
+  header.scrolled{
+    background:rgba(36,18,8,0.96);
+    box-shadow:0 1px 0 var(--line);
+    padding:12px 28px;
+    backdrop-filter:blur(6px);
+  }
+  .brand{display:flex;align-items:center;gap:10px;color:var(--cream);}
+  .brand .mark{width:30px;height:30px;flex:none;}
+  .brand-name{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;letter-spacing:0.01em;}
+  nav.links{display:flex;gap:32px;align-items:center;}
+  nav.links a{
+    color:var(--cream);
+    font-size:0.88rem;
+    font-weight:500;
+    opacity:0.85;
+    transition:opacity .2s ease;
+  }
+  nav.links a:hover{opacity:1;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 22px;
+    border-radius:3px;
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.02em;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-gold{background:var(--gold);color:var(--broth-dark);}
+  .btn-gold:hover{background:var(--gold-soft);}
+  .btn-outline{border-color:rgba(246,239,226,0.4);color:var(--cream);}
+  .btn-outline:hover{border-color:var(--cream);background:rgba(246,239,226,0.08);}
+  .nav-cta{display:flex;gap:12px;align-items:center;}
+  .menu-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh;
+    background:
+      radial-gradient(ellipse 900px 500px at 82% 8%, rgba(217,164,65,0.16), transparent 60%),
+      radial-gradient(ellipse 700px 600px at 10% 100%, rgba(92,124,98,0.14), transparent 55%),
+      linear-gradient(160deg, var(--broth-dark) 0%, #2c170c 55%, var(--broth-dark) 100%);
+    display:flex;
+    align-items:center;
+    padding:140px 0 80px;
+    color:var(--cream);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+  .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--jade-soft);}
+  .hero h1{
+    font-size:clamp(2.8rem, 5.4vw, 4.6rem);
+    line-height:1.02;
+    color:var(--cream);
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold-soft);
+    font-weight:500;
+  }
+  .hero p.lede{
+    margin-top:22px;
+    font-size:1.08rem;
+    line-height:1.6;
+    max-width:46ch;
+    color:rgba(246,239,226,0.78);
+  }
+  .hero-actions{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .hero-stats{
+    display:flex;gap:28px;margin-top:46px;flex-wrap:wrap;
+    padding-top:28px;border-top:1px solid var(--line);
+  }
+  .stat .num{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--gold-soft);}
+  .stat .lbl{font-size:0.76rem;color:var(--muted);margin-top:2px;letter-spacing:0.03em;}
+
+  /* bowl illustration */
+  .bowl-wrap{position:relative;display:flex;align-items:center;justify-content:center;}
+  .bowl-svg{width:100%;max-width:440px;}
+  .steam path{
+    stroke:rgba(246,239,226,0.55);
+    stroke-width:3;
+    fill:none;
+    stroke-linecap:round;
+    transform-origin:center;
+    animation:rise 4.5s ease-in-out infinite;
+    opacity:0;
+  }
+  .steam path:nth-child(1){animation-delay:0s;}
+  .steam path:nth-child(2){animation-delay:1.1s;}
+  .steam path:nth-child(3){animation-delay:2.2s;}
+  .steam path:nth-child(4){animation-delay:0.6s;}
+  @keyframes rise{
+    0%{opacity:0; transform:translateY(0) scale(1);}
+    15%{opacity:0.7;}
+    75%{opacity:0.25;}
+    100%{opacity:0; transform:translateY(-46px) scale(1.06);}
+  }
+
+  /* ---------- MARQUEE STRIP ---------- */
+  .strip{
+    background:var(--gold);
+    color:var(--broth-dark);
+    padding:12px 0;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .strip-track{
+    display:inline-flex;
+    gap:48px;
+    animation:scroll-left 26s linear infinite;
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:0.95rem;
+  }
+  .strip-track span{display:inline-flex;align-items:center;gap:48px;}
+  @keyframes scroll-left{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{padding:110px 0;background:var(--paper);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:64px;
+    align-items:center;
+  }
+  .about h2{font-size:clamp(2rem,3.4vw,2.7rem);margin-top:14px;line-height:1.12;}
+  .about p{margin-top:20px;font-size:1.02rem;line-height:1.75;color:#4a3d31;max-width:52ch;}
+  .about-quote{
+    margin-top:30px;
+    padding-left:20px;
+    border-left:2px solid var(--gold);
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--broth);
+  }
+  .herb-svg{width:100%;}
+
+  /* ---------- MENU ---------- */
+  .menu{padding:110px 0;background:var(--broth-dark);color:var(--cream);}
+  .menu-head{text-align:center;max-width:640px;margin:0 auto 60px;}
+  .menu-head h2{font-size:clamp(2.1rem,3.6vw,2.8rem);margin-top:14px;color:var(--cream);}
+  .menu-head p{margin-top:16px;color:rgba(246,239,226,0.7);line-height:1.6;}
+  .menu-cols{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:56px 64px;
+  }
+  .menu-cat h3{
+    font-size:1.3rem;color:var(--gold-soft);
+    display:flex;align-items:center;gap:10px;
+  }
+  .menu-cat h3::after{content:"";flex:1;height:1px;background:var(--line);}
+  .menu-item{
+    display:flex;justify-content:space-between;gap:16px;
+    padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .menu-item:last-child{border-bottom:none;}
+  .menu-item .mi-name{font-weight:600;font-size:0.98rem;}
+  .menu-item .mi-desc{font-size:0.85rem;color:var(--muted);margin-top:4px;line-height:1.5;}
+  .menu-item .mi-price{
+    font-family:'Fraunces',serif;font-weight:600;color:var(--gold-soft);
+    white-space:nowrap;font-size:0.98rem;
+  }
+  .menu-note{
+    text-align:center;margin-top:52px;font-size:0.85rem;color:var(--muted);
+  }
+
+  /* ---------- INFO / HOURS ---------- */
+  .info{padding:110px 0;background:var(--paper);}
+  .info-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;
+  }
+  .info-card{
+    background:var(--cream);
+    border:1px solid #e7dcc8;
+    border-radius:4px;
+    padding:38px;
+  }
+  .info-card h3{font-size:1.5rem;margin-bottom:22px;}
+  .hours-row{
+    display:flex;justify-content:space-between;
+    padding:10px 0;border-bottom:1px dashed #ddd0b8;
+    font-size:0.94rem;
+  }
+  .hours-row:last-child{border-bottom:none;}
+  .hours-row.today{font-weight:700;color:var(--chili);}
+  .loc-line{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px;}
+  .loc-line .ic{flex:none;width:20px;height:20px;margin-top:2px;color:var(--jade);}
+  .loc-line .tx{font-size:0.96rem;line-height:1.55;color:#4a3d31;}
+  .loc-line .tx a{color:var(--broth);font-weight:600;border-bottom:1px solid var(--gold);}
+  .badge-row{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;}
+  .badge{
+    font-size:0.74rem;font-weight:600;letter-spacing:0.03em;
+    padding:6px 12px;border-radius:20px;
+    background:rgba(92,124,98,0.12);color:var(--jade);
+    border:1px solid rgba(92,124,98,0.3);
+  }
+
+  /* ---------- REVIEWS ---------- */
+  .reviews{padding:100px 0 120px;background:var(--paper);}
+  .reviews-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;margin-bottom:48px;}
+  .rating-big{display:flex;align-items:baseline;gap:12px;}
+  .rating-big .num{font-family:'Fraunces',serif;font-size:3rem;color:var(--broth);}
+  .stars{color:var(--gold);letter-spacing:2px;font-size:1.1rem;}
+  .review-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .review-card{
+    background:var(--cream);border:1px solid #e7dcc8;border-radius:4px;padding:28px;
+  }
+  .review-card .stars{margin-bottom:14px;}
+  .review-card p{font-size:0.95rem;line-height:1.65;color:#4a3d31;font-style:italic;font-family:'Fraunces',serif;}
+  .review-card .who{margin-top:18px;font-size:0.8rem;color:var(--muted);font-family:'Inter',sans-serif;font-style:normal;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--broth-dark);color:var(--cream);padding:70px 0 30px;}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px;padding-bottom:44px;border-bottom:1px solid var(--line);}
+  .foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .foot-brand .mark{width:26px;height:26px;}
+  footer h4{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:16px;}
+  footer p, footer a{font-size:0.9rem;color:rgba(246,239,226,0.75);line-height:1.9;}
+  footer a:hover{color:var(--cream);}
+  .foot-bottom{display:flex;justify-content:space-between;padding-top:26px;font-size:0.8rem;color:var(--muted);flex-wrap:wrap;gap:10px;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    nav.links{display:none;}
+    .hero-grid{grid-template-columns:1fr;text-align:left;}
+    .bowl-wrap{order:-1;max-width:280px;margin:0 auto 10px;}
+    .about-grid{grid-template-columns:1fr;}
+    .herb-svg{max-width:220px;margin:0 auto;order:-1;}
+    .menu-cols{grid-template-columns:1fr;}
+    .info-grid{grid-template-columns:1fr;}
+    .review-cards{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;gap:32px;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <a href="#top" class="brand">
+    <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 20c0 7.7 6.3 14 14 14s14-6.3 14-14" stroke="#D9A441" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M4 20h32" stroke="#D9A441" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M14 20c0-3 2-5 2-8" stroke="#F6EFE2" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
+      <path d="M20 20c0-4 2.4-6 2.4-10" stroke="#F6EFE2" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
+    </svg>
+    <span class="brand-name">Phở Madame</span>
+  </a>
+  <nav class="links">
+    <a href="#about">Story</a>
+    <a href="#menu">Menu</a>
+    <a href="#hours">Hours &amp; Location</a>
+    <a href="#reviews">Reviews</a>
+  </nav>
+  <div class="nav-cta">
+    <a class="btn btn-outline" href="tel:+19164744659">(916) 474-4659</a>
+    <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=Pho+Madame+1780+Pleasant+Grove+Blvd+Suite+130+Roseville+CA+95747">Directions</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          <span class="eyebrow">Roseville, California</span>
+        </div>
+        <h1>Broth simmered<br>slow. Served <em>fast,</em><br>eaten warm.</h1>
+        <p class="lede">Phở Madame is a small, spotless noodle house in Roseville built around one thing: a beef broth worth the drive. Fresh herbs, hand-cut brisket, a short menu — done right, every bowl.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="tel:+19164744659">Call to Order — (916) 474-4659</a>
+          <a class="btn btn-outline" href="#menu">View Menu</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="num">4.3 ★</div>
+            <div class="lbl">65 Google reviews</div>
+          </div>
+          <div class="stat">
+            <div class="num">$10–30</div>
+            <div class="lbl">Typical, per person</div>
+          </div>
+          <div class="stat">
+            <div class="num">10–9</div>
+            <div class="lbl">Open daily, 10 AM–9 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bowl-wrap">
+        <svg class="bowl-svg" viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg">
+          <g class="steam">
+            <path d="M150 150 C140 130, 165 115, 155 95 C145 75, 168 60, 160 40"/>
+            <path d="M200 150 C190 130, 215 118, 205 98 C195 78, 218 62, 210 42"/>
+            <path d="M250 150 C240 130, 265 115, 255 95 C245 75, 268 60, 260 40"/>
+            <path d="M225 150 C218 135, 236 122, 228 105 C220 88, 238 74, 230 58"/>
+          </g>
+          <ellipse cx="200" cy="330" rx="12" ry="4" fill="#000" opacity="0.15"/>
+          <path d="M60 200 C60 200 65 320 200 320 C335 320 340 200 340 200 Z" fill="#D9A441"/>
+          <path d="M60 200 C60 200 65 320 200 320 C335 320 340 200 340 200 Z" fill="url(#bowlGrad)"/>
+          <ellipse cx="200" cy="200" rx="140" ry="34" fill="#8a5a1f"/>
+          <ellipse cx="200" cy="196" rx="140" ry="30" fill="#c1502e" opacity="0.85"/>
+          <ellipse cx="200" cy="193" rx="132" ry="25" fill="#5c7c62" opacity="0.55"/>
+          <ellipse cx="150" cy="188" rx="26" ry="10" fill="#f6efe2" opacity="0.85"/>
+          <ellipse cx="235" cy="200" rx="20" ry="8" fill="#f6efe2" opacity="0.7"/>
+          <ellipse cx="185" cy="205" rx="18" ry="7" fill="#eccd8f" opacity="0.9"/>
+          <path d="M40 190 C40 165 90 148 200 148 C310 148 360 165 360 190 C360 205 310 214 200 214 C90 214 40 205 40 190 Z" fill="#2c170c" opacity="0.06"/>
+          <rect x="255" y="60" width="6" height="150" rx="3" fill="#3d2417" transform="rotate(18 255 60)"/>
+          <rect x="270" y="55" width="6" height="150" rx="3" fill="#241208" transform="rotate(14 270 55)"/>
+          <defs>
+            <linearGradient id="bowlGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#eccd8f"/>
+              <stop offset="100%" stop-color="#c98a2f"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="strip" aria-hidden="true">
+    <div class="strip-track">
+      <span>Phở Bò · Bún Bò Huế · Bánh Mì · Vietnamese Iced Coffee · Phở Bò · Bún Bò Huế · Bánh Mì · Vietnamese Iced Coffee</span>
+      <span>Phở Bò · Bún Bò Huế · Bánh Mì · Vietnamese Iced Coffee · Phở Bò · Bún Bò Huế · Bánh Mì · Vietnamese Iced Coffee</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <svg class="herb-svg" viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg">
+        <path d="M150 300 C150 300 60 260 60 170 C60 110 100 70 150 60 C200 70 240 110 240 170 C240 260 150 300 150 300 Z" fill="none" stroke="#5c7c62" stroke-width="2"/>
+        <path d="M150 300 L150 60" stroke="#5c7c62" stroke-width="2"/>
+        <path d="M150 100 C170 105 190 120 195 145" fill="none" stroke="#5c7c62" stroke-width="1.5"/>
+        <path d="M150 150 C130 155 110 170 105 195" fill="none" stroke="#5c7c62" stroke-width="1.5"/>
+        <path d="M150 200 C170 205 190 220 195 245" fill="none" stroke="#5c7c62" stroke-width="1.5"/>
+        <circle cx="90" cy="260" r="16" fill="#c1502e" opacity="0.85"/>
+        <circle cx="110" cy="275" r="10" fill="#d9a441" opacity="0.9"/>
+      </svg>
+      <div>
+        <span class="eyebrow">Our Story</span>
+        <h2>Not your typical<br>noodle shop.</h2>
+        <p>We opened Phở Madame in the Pleasant Grove neighborhood of Roseville to do one dish exceptionally well. The broth simmers for hours before service. Herbs arrive fresh and are trimmed by hand. The dining room stays spotless because we think a clean kitchen makes a better bowl.</p>
+        <p>The menu is short on purpose — every dish earns its place, from a classic phở bò to bún bò huế with real depth of chile and lemongrass. Locals tell us it's worth the drive. We'd love for you to find out yourself.</p>
+        <p class="about-quote">"This isn't your typical hole-in-the-wall pho spot — this is elevated and meticulously thought out."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="menu-head">
+        <span class="eyebrow">A Short, Honest Menu</span>
+        <h2>What we're known for</h2>
+        <p>A few staples, made carefully. Full menu and seasonal specials available in-house — ask your server about daily add-ons.</p>
+      </div>
+      <div class="menu-cols">
+
+        <div class="menu-cat">
+          <h3>To Start</h3>
+          <div class="menu-item">
+            <div><div class="mi-name">Crispy Egg Rolls</div><div class="mi-desc">Four pieces, served with fish sauce</div></div>
+            <div class="mi-price">$9.50</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Garlic Butter Fish-Sauce Wings</div><div class="mi-desc">Six pieces, glazed and crisped</div></div>
+            <div class="mi-price">$10.95</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Steamed Shrimp &amp; Pork Dumplings</div><div class="mi-desc">Lotus root, shrimp, squid</div></div>
+            <div class="mi-price">$15.95</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Vietnamese Grilled Pork Sausage</div><div class="mi-desc">Char-grilled, served warm</div></div>
+            <div class="mi-price">$9.95</div>
+          </div>
+        </div>
+
+        <div class="menu-cat">
+          <h3>Phở — Beef Noodle Soup</h3>
+          <div class="menu-item">
+            <div><div class="mi-name">Phở Đặc Biệt</div><div class="mi-desc">Rare beef, brisket, tendon, tripe &amp; meatball</div></div>
+            <div class="mi-price">$17.95</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Phở Đuôi Bò</div><div class="mi-desc">Oxtail and rare ribeye</div></div>
+            <div class="mi-price">$22.00</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Phở Sườn Cay</div><div class="mi-desc">Spicy braised short rib</div></div>
+            <div class="mi-price">$17.95+</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Add-Ons</div><div class="mi-desc">Extra noodles, rare beef, tendon, meatball &amp; more</div></div>
+            <div class="mi-price">$2.50+</div>
+          </div>
+        </div>
+
+        <div class="menu-cat">
+          <h3>Specialty Bowls</h3>
+          <div class="menu-item">
+            <div><div class="mi-name">Bún Bò Huế</div><div class="mi-desc">Spicy beef &amp; pork noodle, lemongrass broth</div></div>
+            <div class="mi-price">$17.95</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Garlic Ribeye Rice Plate</div><div class="mi-desc">Stir-fried garlic ribeye over rice</div></div>
+            <div class="mi-price">$17.95</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Seafood Hủ Tiếu</div><div class="mi-desc">Shrimp, squid, green mussel, tomato</div></div>
+            <div class="mi-price">$19.50</div>
+          </div>
+        </div>
+
+        <div class="menu-cat">
+          <h3>Bánh Mì &amp; Drinks</h3>
+          <div class="menu-item">
+            <div><div class="mi-name">Bánh Mì Sandwiches</div><div class="mi-desc">Ask about today's fillings</div></div>
+            <div class="mi-price">from $9.95</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Vietnamese Iced Coffee</div><div class="mi-desc">Slow-dripped, sweet condensed milk</div></div>
+            <div class="mi-price">$7.00</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Specialty Drinks &amp; Beer</div><div class="mi-desc">Rotating selection</div></div>
+            <div class="mi-price">$7.00</div>
+          </div>
+        </div>
+
+      </div>
+      <p class="menu-note">Prices and availability may vary. Call (916) 474-4659 to confirm today's menu.</p>
+    </div>
+  </section>
+
+  <!-- HOURS + LOCATION -->
+  <section class="info" id="hours">
+    <div class="wrap info-grid">
+
+      <div class="info-card">
+        <h3>Hours</h3>
+        <div class="hours-row" data-day="1"><span>Monday</span><span>10:00 AM – 9:00 PM</span></div>
+        <div class="hours-row" data-day="2"><span>Tuesday</span><span>10:00 AM – 9:00 PM</span></div>
+        <div class="hours-row" data-day="3"><span>Wednesday</span><span>10:00 AM – 9:00 PM</span></div>
+        <div class="hours-row" data-day="4"><span>Thursday</span><span>10:00 AM – 9:00 PM</span></div>
+        <div class="hours-row" data-day="5"><span>Friday</span><span>10:00 AM – 9:00 PM</span></div>
+        <div class="hours-row" data-day="6"><span>Saturday</span><span>10:00 AM – 9:00 PM</span></div>
+        <div class="hours-row" data-day="0"><span>Sunday</span><span>10:00 AM – 9:00 PM</span></div>
+        <p style="margin-top:18px;font-size:0.82rem;color:var(--muted);">Hours can shift on holidays — a quick call before you head over is always a good idea.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Find Us</h3>
+        <div class="loc-line">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M12 22s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div class="tx">1780 Pleasant Grove Blvd, Suite 130<br>Roseville, CA 95747<br><a href="https://www.google.com/maps/search/?api=1&query=Pho+Madame+1780+Pleasant+Grove+Blvd+Suite+130+Roseville+CA+95747" target="_blank" rel="noopener">Get Directions →</a></div>
+        </div>
+        <div class="loc-line">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 5c0-1 1-2 2-2h2l2 5-2 1.5a12 12 0 006 6L15.5 14l5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div class="tx"><a href="tel:+19164744659">(916) 474-4659</a></div>
+        </div>
+        <div class="loc-line">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18M8 2v4M16 2v4" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div class="tx">$10–30 per person, typical<br>Dine-in &amp; takeout</div>
+        </div>
+        <div class="badge-row">
+          <span class="badge">Asian-Owned</span>
+          <span class="badge">Dine-In</span>
+          <span class="badge">Takeout</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="wrap">
+      <div class="reviews-head">
+        <div>
+          <span class="eyebrow">What Guests Say</span>
+          <div class="rating-big">
+            <span class="num">4.3</span>
+            <div>
+              <div class="stars">★★★★☆</div>
+              <div style="font-size:0.85rem;color:var(--muted);margin-top:2px;">from 65 Google reviews</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="review-cards">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Warm, friendly service from the moment we walked in — and the food backed it up. Clean restaurant, simple menu, everything tasted great."</p>
+          <div class="who">— Local Guide, Google Reviews</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Drove all the way from Downtown Sacramento just to try it, and it was worth the trip. This isn't your typical hole-in-the-wall pho spot."</p>
+          <div class="who">— Local Guide, Google Reviews</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Rich, flavorful broth and fresh ingredients. The menu is short, but everything on it is well done — my kids rate this place a 10 out of 10."</p>
+          <div class="who">— Google Reviews</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 20c0 7.7 6.3 14 14 14s14-6.3 14-14" stroke="#D9A441" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M4 20h32" stroke="#D9A441" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          <span class="brand-name" style="color:var(--cream);">Phở Madame</span>
+        </div>
+        <p style="max-width:32ch;">Elevated Vietnamese noodle house in Roseville, CA. Slow broth, fresh herbs, short menu.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <p>1780 Pleasant Grove Blvd, Ste 130<br>Roseville, CA 95747</p>
+        <p><a href="tel:+19164744659">(916) 474-4659</a></p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <p><a href="#about">Our Story</a><br>
+        <a href="#menu">Menu</a><br>
+        <a href="#hours">Hours &amp; Location</a><br>
+        <a href="https://www.instagram.com/phomadameroseville/" target="_blank" rel="noopener">Instagram</a></p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Phở Madame. All rights reserved.</span>
+      <span>Roseville, California</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  const todayIdx = new Date().getDay();
+  const row = document.querySelector('.hours-row[data-day="' + todayIdx + '"]');
+  if (row) row.classList.add('today');
+</script>
+
+</body>
+</html>
